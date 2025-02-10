@@ -8,10 +8,10 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/1 or /todo_lists/1.json
   def show
-    if params[:status]
-      @todo_items = @todo_list.todo_items.where(status: params[:status]).order(:created_at)
-    else
+    if params[:filter].blank?
       @todo_items = @todo_list.todo_items.order(:created_at)
+    else
+      @todo_items = @todo_list.todo_items.where(status: params[:filter]).order(:created_at)
     end
   end
 
