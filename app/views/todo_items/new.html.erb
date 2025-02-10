@@ -1,0 +1,4 @@
+<%= turbo_frame_tag :new_todo_item do %>
+  <% content_for :title, "New todo item" %>
+  <%= render "form", todo_item: @todo_item %>
+<% end %>

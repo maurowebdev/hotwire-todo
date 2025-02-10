@@ -1,0 +1,5 @@
+<div class="flex gap-2" id="counter">
+<span><%= todo_list.todo_items.where(status: :completed).count %><span>
+<span>/<span>
+<span><%= todo_list.todo_items.size %><span>
+</div>
