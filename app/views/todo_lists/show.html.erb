@@ -8,10 +8,12 @@
     <h1 class="text-3xl"><%= @todo_list.name %></h1>
     <%= render "counter", todo_list: @todo_list %>
   </div>
-  <div class="flex justify">
-
+  <div class="flex justify mt-4">
+    <%= link_to "All", @todo_list, class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+    <%= link_to "Pending", todo_list_path(@todo_list, status: :pending), class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+    <%= link_to "Completed", todo_list_path(@todo_list, status: :completed), class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   </div>
-  <div id="todo-items" class="grid gap-4 mt-4">
+  <div id="todo-items" class="grid gap-4 mt-3">
     <% @todo_items.each do |item| %>
       <%= render "todo_item", item: item %>
     <% end %>
@@ -19,9 +21,5 @@
 
   <%= turbo_frame_tag :new_todo_item, src: new_todo_list_todo_item_path(@todo_list) %>
 
-  <%= link_to "Edit this todo list", edit_todo_list_path(@todo_list), class: "mt-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   <%= link_to "Back to todo lists", todo_lists_path, class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-  <div class="inline-block ml-2">
-    <%= button_to "Destroy this todo list", @todo_list, method: :delete, class: "mt-2 rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium" %>
-  </div>
 </div>
