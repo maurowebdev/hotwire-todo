@@ -29,3 +29,7 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models:
+      todo_list: "To-Do List"
+      todo_item: "Item"

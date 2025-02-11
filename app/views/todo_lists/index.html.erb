@@ -6,17 +6,22 @@
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">To-Do Lists for Peny.</h1>
-    <%= link_to "New todo list", new_todo_list_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl">To-Do Lists for PenyApp.</h1>
+    <%= link_to "New To-Do list", new_todo_list_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
 
   <div id="todo_lists" class="min-w-full">
     <% if @todo_lists.any? %>
       <% @todo_lists.each do |todo_list| %>
-        <%= render todo_list %>
-        <p>
-          <%= link_to "Show this todo list", todo_list, class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-        </p>
+        <div class="flex items-center">
+          <%= render todo_list %>
+          <%= link_to todo_list, class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" do %>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+              <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
+          <% end %>
+        </div>
       <% end %>
     <% else %>
       <p class="text-center my-10">No todo lists found.</p>
