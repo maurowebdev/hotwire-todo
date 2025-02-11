@@ -5,13 +5,13 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
   <div class="flex justify-between">
-    <h1 class="text-3xl"><%= @todo_list.name %></h1>
+    <h1 class="text-7xl"><%= @todo_list.name %></h1>
     <%= render "counter", todo_list: @todo_list %>
   </div>
-  <div class="flex justify mt-4">
+  <div class="text-right mt-4">
     <%= form_with url: todo_list_path(@todo_list), method: :get, data: { turbo_frame: "todo-items" } do %>
-      <%= select_tag :filter, options_for_select(TodoItem.statuses), include_blank: true, class: "inline-block rounded-md border border-gray-200 outline-none px-3 py-2" %>
-      <%= submit_tag "Filter", class: "ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+      <%= select_tag :filter, options_for_select(TodoItem.statuses), include_blank: true, class: "inline-block rounded-md border border-gray-200 outline-none px-3 py-2 bg-gray-50" %>
+      <%= submit_tag "Filter", class: "text-white bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2 mt-2" %>
     <% end %>
   </div>
   <turbo-frame id="todo-items" class="grid gap-4 mt-3">
